@@ -63,7 +63,7 @@ r</p>
 
 
 <h2>Exercice 3 : Retour à la ligne</h2>
-<p>La présence d'un espace provoqué un retour à la ligne </br>
+<p>La présence d'un espace provoque un retour à la ligne </br>
 Exemple : L'hiver sera pluvieux</br>
 L'hiver</br>
 sera</br>
@@ -93,10 +93,33 @@ Lhvrsr lvex</p>
 <p>Ecrire le programme afin d'afficher le texte en verlant </br>
 Exemple : L'hiver sera pluvieux</br>
 xueivulp ares revih'l</p>
+<p>
+<% for (int i = longueurChaine - 1; i >= 0; i--) { %>
+    <%= chaine.charAt(i) %>
+<% } %>
+</p>
 
 
 <h2>Exercice 6 : Consonnes et voyelles</h2>
 <p>Ecrire le programme afin de compter les consonnes et les voyelles dans votre texte</p>
+<%
+    int voyelles = 0;
+    int consonnes = 0;
+    String minuscules = chaine.toLowerCase();
+    
+    for (int i = 0; i < minuscules.length(); i++) {
+        char c = minuscules.charAt(i);
+        if (c >= 'a' && c <= 'z') {
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'y') {
+                voyelles++;
+            } else {
+                consonnes++;
+            }
+        }
+    }
+%>
+<p>Nombre de voyelles : <strong><%= voyelles %></strong></p>
+<p>Nombre de consonnes : <strong><%= consonnes %></strong></p>
 
 <% } %>
 <p><a href="index.html">Retour au sommaire</a></p>
