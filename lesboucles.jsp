@@ -28,42 +28,99 @@
 <h2>Exercice 1 : Le carré d'étoiles</h2>
 <p>Ecrire le code afin de produire un carré d'étoile</p>
 <p>Exemple si l'utilisateur saisie le valeur 5</p>
-<p>*****</br>*****</br>*****</br>*****</br>*****</p>
+<p>
+<% for (int i = 1; i <= cpt; i++) { %>
+    <% for (int j = 1; j <= cpt; j++) { %>
+        <%= "*" %>
+    <% } %>
+    <br/>
+<% } %>
+</p>
 
 <h2>Exercice 2 : Triangle rectangle gauche</h2>
 <p>Ecrire le code afin de produire un triangle rectangle aligné sur la gauche</p>
 <p>Exemple si l'utilisateur saisie le valeur 5</p>
-<p>*</br>**</br>***</br>****</br>*****</p>
+<p>
+<% for (int i = 1; i <= cpt; i++) { %>
+    <% for (int j = 1; j <= i; j++) { %>
+        <%= "*" %>
+    <% } %>
+    <br/>
+<% } %>
+</p>
 
 <h2>Exercice 3 : Triangle rectangle inversé</h2>
 <p>Ecrire le code afin de produire un triangle rectangle aligné sur la gauche</p>
 <p>Exemple si l'utilisateur saisie le valeur 5</p>
-<p>*****</br>****</br>***</br>**</br>*</p>
+<p>
+<% for (int i = cpt; i >= 1; i--) { %>
+    <% for (int j = 1; j <= i; j++) { %>
+        <%= "*" %>
+    <% } %>
+    <br/>
+<% } %>
+</p>
 
 <h2>Exercice 4 : Triangle rectangle 2</h2>
 <p>Ecrire le code afin de produire un triangle rectangle aligné sur la droite</p>
 <p>Exemple si l'utilisateur saisie le valeur 5</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**</br>&nbsp;&nbsp;&nbsp;&nbsp;***</br>&nbsp;&nbsp;****</br>*****</p>
+<p>
+<% for (int i = 1; i <= cpt; i++) { %>
+    <%-- Espaces --%>
+    <% for (int j = 1; j <= cpt - i; j++) { %>
+        <%= "&nbsp;&nbsp;" %>
+    <% } %>
+    <%-- Étoiles --%>
+    <% for (int k = 1; k <= i; k++) { %>
+        <%= "*" %>
+    <% } %>
+    <br/>
+<% } %>
+</p>
 
 <h2>Exercice 5 : Triangle isocele</h2>
-<p>Ecrire le code afin de produire un triangle rectangle aligné sur la droite</p>
+<p>Ecrire le code afin de produire un triangle isocèle</p>
 <p>Exemple si l'utilisateur saisie le valeur 5</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;*</br>&nbsp;&nbsp;&nbsp;**</br>&nbsp;&nbsp;***</br>&nbsp;****</br>*****</p>
+<p>
+<% for (int i = 1; i <= cpt; i++) { %>
+    <%-- Espaces avant les étoiles --%>
+    <% for (int j = 1; j <= cpt - i; j++) { %>
+        <%= "&nbsp;" %>
+    <% } %>
+    <%-- Étoiles (1, 3, 5, 7... soit 2*i - 1) --%>
+    <% for (int k = 1; k <= (2 * i - 1); k++) { %>
+        <%= "*" %>
+    <% } %>
+    <br/>
+<% } %>
+</p>
 
 <h2>Exercice 6 : Le demi losange</h2>
-<p>Ecrire le code afin de produire un losange</p>
+<p>Ecrire le code afin de produire un losange (ou demi-losange selon l'énoncé)</p>
 <p>Exemple si l'utilisateur saisie le valeur 5</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**</br>&nbsp;&nbsp;&nbsp;&nbsp;***</br>&nbsp;&nbsp;****</br>*****</p>
-<p>*****</br>&nbsp;&nbsp;****</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</p>
+<p>
+<%-- Partie haute du losange --%>
+<% for (int i = 1; i <= cpt; i++) { %>
+    <% for (int j = 1; j <= i; j++) { %>
+        <%= "*" %>
+    <% } %>
+    <br/>
+<% } %>
+<%-- Partie basse du losange --%>
+<% for (int i = cpt - 1; i >= 1; i--) { %>
+    <% for (int j = 1; j <= i; j++) { %>
+        <%= "*" %>
+    <% } %>
+    <br/>
+<% } %>
+</p>
 
 <h2>Exercice 7 : La table de multiplication</h2>
-<p>Ecrire le code afin de créser une table de multiplication</p>
+<p>Ecrire le code afin de créer une table de multiplication</p>
 <p>Exemple si l'utilisateur saisie le valeur 5</p>
-<p>5 x 1 = 5</p>
-<p>5 x 2 = 10</p>
-<p>5 x 3 = 15</p>
-<p>5 x 4 = 20</p>
-<p>5 x 5 = 25</p>
+<% for (int i = 1; i <= cpt; i++) { %>
+    <p><%= cpt %> x <%= i %> = <%= cpt * i %></p>
+<% } %>
 
 <% } %>
 <p><a href="index.html">Retour au sommaire</a></p>
